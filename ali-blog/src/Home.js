@@ -15,11 +15,12 @@ const Home = () => {
         return res.json();
       })
       .then(data => {
-        console.log(data)
         setBlogs(data);
         setIsPending(false);
+        setError(null);
       })
       .catch(err =>{
+        setIsPending(false);
         setError(err.message);
       })
   }, [])
